@@ -18,7 +18,7 @@ This project includes:
 ## 1️⃣ Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/stego-scanner.git
+git clone https://github.com/zer0trace1/KANTEI.git
 cd stego-scanner
 ```
 
@@ -29,15 +29,15 @@ cd stego-scanner
 ### Windows (PowerShell)
 
 ```bash
-python -m venv stego
-.\stego\Scriptsctivate
+python -m venv [name]
+.\[name]\Scripts\activate
 ```
 
 ### Linux / macOS
 
 ```bash
-python3 -m venv stego
-source stego/bin/activate
+python3 -m venv [name]
+source [name]/bin/activate
 ```
 
 ---
@@ -69,26 +69,26 @@ pip install scikit-learn pandas
 ## 🔍 Analyze an image
 
 ```bash
-python stego-scanner.py image.png --plot --report report.json
+python stego-scanner.py img.png --plot --report report.json
 ```
 
 ---
 
 ## Available Options
 
-| Option | Description |
-|--------|------------|
-| `--visualize` | Generates bitplane images (PNG/BMP) |
-| `--plot` | Generates metric graph (`*_metrics.png`) |
-| `--report file.json` | Saves full report as JSON |
-| `--csv metrics.csv` | Appends metrics to a cumulative CSV |
+| Option               | Description                              |
+| -------------------- | ---------------------------------------- |
+| `--visualize`        | Generates bitplane images (PNG/BMP)      |
+| `--plot`             | Generates metric graph (`*_metrics.png`) |
+| `--report file.json` | Saves full report as JSON                |
+| `--csv metrics.csv`  | Appends metrics to a cumulative CSV      |
 
 ---
 
 ### 🔎 Full Example
 
 ```bash
-python stego-scanner.py img1.png --visualize --plot --report report.json --csv metrics.csv
+python stego-scanner.py img.png --visualize --plot --report report.json --csv metrics.csv
 ```
 
 ---
@@ -103,13 +103,13 @@ python inject_lsb_fill.py
 
 By default, it generates:
 
-- `img1_infected_30.png`
-- `img1_infected_100.png`
+- `img_infected_30.png`
+- `img_infected_100.png`
 
 You can then analyze them with:
 
 ```bash
-python stego-scanner.py img1_infected_100.png --plot
+python stego-scanner.py img_infected_100.png --plot
 ```
 
 ---
@@ -129,15 +129,19 @@ python stego-scanner.py img1_infected_100.png --plot
 The system combines classical steganalysis techniques:
 
 ### 📌 LSB Chi-Square
+
 Detects statistical deviations in the least significant bit distribution.
 
 ### 📌 Simplified RS Analysis
+
 Evaluates block behavior under simulated LSB modification.
 
 ### 📌 ELA (JPEG)
+
 Highlights recompression inconsistencies that may indicate manipulation.
 
 ### 📌 Structural Analysis
+
 Checks for trailing data and unusual file segments.
 
 The tool produces a **heuristic score (0–1)** and a verdict:
