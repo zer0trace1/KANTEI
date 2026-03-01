@@ -1,0 +1,24 @@
+# Entorno virtual
+stego/
+venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos generados
+*_metrics.png
+*_ELA.png
+*_bit*.png
+metrics.csv
+*.json
+*.png
+
+# VSCode
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
