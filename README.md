@@ -139,7 +139,7 @@ python stego-scanner.py image.png --plot --report report.json
 # 🧪 Generate Test Images (LSB Injection)
 
 ```bash
-python inject_lsb_fill.py
+python inject_lsb.py
 ```
 
 By default, it generates:
