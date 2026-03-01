@@ -1,4 +1,4 @@
-# 🕵️ Stego Scanner
+# 🕵️ KANTEI
 
 A Python-based heuristic tool for detecting potential steganography in images (PNG / JPEG).
 
@@ -19,7 +19,7 @@ This project includes:
 
 ```bash
 git clone https://github.com/zer0trace1/KANTEI.git
-cd stego-scanner
+cd KANTEI
 ```
 
 ---
