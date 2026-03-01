@@ -1,15 +1,39 @@
 # 🕵️ KANTEI
 
-A Python-based heuristic tool for detecting potential steganography in images (PNG / JPEG).
+A Python-based heuristic tool for detecting potential steganography in
+images (PNG / JPEG).
 
-This project includes:
+---
 
-- 📊 LSB statistical analysis (Chi-square, imbalance)
-- 🔎 Simplified RS analysis
-- 🖼 ELA (Error Level Analysis) for JPEG
-- 📈 Automatic metric visualization
-- 🧪 LSB injection script for generating test images
-- 📁 Export of results to JSON and CSV
+# 🐍 Python Compatibility
+
+This project requires:
+
+**Python 3.9 or newer**\
+(Recommended: Python 3.9 -- 3.13)
+
+Python 3.14+ may work but is very recent and some third-party libraries
+may take time to fully support it.
+
+## Check your Python version
+
+Windows:
+
+```bash
+py --version
+```
+
+or
+
+```bash
+python --version
+```
+
+Linux / macOS:
+
+```bash
+python3 --version
+```
 
 ---
 
@@ -29,7 +53,7 @@ cd KANTEI
 ### Windows (PowerShell)
 
 ```bash
-python -m venv [name]
+py -m venv [name]
 .\[name]\Scripts\activate
 ```
 
@@ -44,19 +68,17 @@ source [name]/bin/activate
 
 ## 3️⃣ Install dependencies
 
-If `requirements.txt` is included:
-
 ```bash
 pip install -r requirements.txt
 ```
 
-If not, install manually:
+If you do not have `requirements.txt`, install manually:
 
 ```bash
 pip install pillow numpy matplotlib
 ```
 
-Optional (for upcoming ML features):
+Optional (for future ML module):
 
 ```bash
 pip install scikit-learn pandas
@@ -64,38 +86,59 @@ pip install scikit-learn pandas
 
 ---
 
-# 🚀 Usage
+# 🚀 Running the Program
 
-## 🔍 Analyze an image
+Depending on your OS and Python installation:
+
+### Windows
 
 ```bash
-python stego-scanner.py img.png --plot --report report.json
+py stego-scanner.py image.png --plot
+```
+
+or
+
+```bash
+python stego-scanner.py image.png --plot
+```
+
+### Linux / macOS
+
+```bash
+python3 stego-scanner.py image.png --plot
+```
+
+If multiple Python versions are installed, you can specify one
+explicitly:
+
+```bash
+py -3.12 stego-scanner.py image.png
+```
+
+---
+
+# 🔍 Analyze an Image
+
+```bash
+python stego-scanner.py image.png --plot --report report.json
 ```
 
 ---
 
 ## Available Options
 
-| Option               | Description                              |
-| -------------------- | ---------------------------------------- |
-| `--visualize`        | Generates bitplane images (PNG/BMP)      |
-| `--plot`             | Generates metric graph (`*_metrics.png`) |
-| `--report file.json` | Saves full report as JSON                |
-| `--csv metrics.csv`  | Appends metrics to a cumulative CSV      |
+Option Description
 
 ---
 
-### 🔎 Full Example
-
-```bash
-python stego-scanner.py img.png --visualize --plot --report report.json --csv metrics.csv
-```
+`--visualize` Generates bitplane images (PNG/BMP)
+`--plot` Generates metric graph (`*_metrics.png`)
+`--report file.json` Saves full report as JSON
+`--csv metrics.csv` Appends metrics to a cumulative CSV
 
 ---
 
 # 🧪 Generate Test Images (LSB Injection)
-
-To generate modified test images:
 
 ```bash
 python inject_lsb_fill.py
@@ -103,14 +146,8 @@ python inject_lsb_fill.py
 
 By default, it generates:
 
-- `img_infected_30.png`
-- `img_infected_100.png`
-
-You can then analyze them with:
-
-```bash
-python stego-scanner.py img_infected_100.png --plot
-```
+- `img1_infected_30.png`
+- `img1_infected_100.png`
 
 ---
 
@@ -124,27 +161,16 @@ python stego-scanner.py img_infected_100.png --plot
 
 ---
 
-# 🧠 Technical Background
+# 🧠 Technical Overview
 
 The system combines classical steganalysis techniques:
 
-### 📌 LSB Chi-Square
+- **LSB Chi-Square** (statistical deviation detection)
+- **Simplified RS Analysis**
+- **ELA (JPEG recompression difference)**
+- **Structural file analysis (trailing data detection)**
 
-Detects statistical deviations in the least significant bit distribution.
-
-### 📌 Simplified RS Analysis
-
-Evaluates block behavior under simulated LSB modification.
-
-### 📌 ELA (JPEG)
-
-Highlights recompression inconsistencies that may indicate manipulation.
-
-### 📌 Structural Analysis
-
-Checks for trailing data and unusual file segments.
-
-The tool produces a **heuristic score (0–1)** and a verdict:
+The tool produces a **heuristic score (0--1)** and a verdict:
 
 - `LOW`
 - `MEDIUM`
@@ -154,9 +180,9 @@ The tool produces a **heuristic score (0–1)** and a verdict:
 
 # ⚠️ Limitations
 
-- This is a heuristic detector, not a guaranteed proof of steganography.
-- It does not automatically extract hidden payloads.
-- Advanced DCT-based steganography detection is not yet implemented.
+- Heuristic-based detection (not mathematically definitive).
+- Does not automatically extract hidden payloads.
+- Advanced DCT-based detection not yet implemented.
 
 ---
 
@@ -172,11 +198,6 @@ The tool produces a **heuristic score (0–1)** and a verdict:
 
 # ⚖️ Legal Notice
 
-This project is intended for educational and cybersecurity research purposes only.  
+This project is intended for educational and cybersecurity research
+purposes only.\
 Do not use it for illegal activities.
-
----
-
-# 👨‍💻 Author
-
-Personal project focused on learning steganalysis and cyber intelligence techniques.
