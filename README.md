@@ -127,14 +127,12 @@ python stego-scanner.py image.png --plot --report report.json
 
 ## Available Options
 
-Option Description
-
----
-
-`--visualize` Generates bitplane images (PNG/BMP)
-`--plot` Generates metric graph (`*_metrics.png`)
-`--report file.json` Saves full report as JSON
-`--csv metrics.csv` Appends metrics to a cumulative CSV
+| Option               | Description                              |
+| -------------------- | ---------------------------------------- |
+| `--visualize`        | Generates bitplane images (PNG/BMP)      |
+| `--plot`             | Generates metric graph (`*_metrics.png`) |
+| `--report file.json` | Saves full report as JSON                |
+| `--csv metrics.csv`  | Appends metrics to a cumulative CSV      |
 
 ---
 
